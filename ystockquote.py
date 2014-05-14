@@ -460,6 +460,13 @@ def get_price_eps_estimate_next_year(symbol):
 def get_short_ratio(symbol):
     return _request(symbol, 's7')
 
+def get_by_id_list(symbol, id_list):
+    """
+    Get a list of values matching the id_list provided,
+    such as ['a', 'y', 'o']
+    """
+    values = _request(symbol, ''.join(id_list)).split(',')
+    return values
 
 def get_historical_prices(symbol, start_date, end_date):
     """
